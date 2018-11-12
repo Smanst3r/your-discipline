@@ -1,0 +1,16 @@
+{% extends 'service/base.html' %}
+
+{% block title %}Choose faculty{% endblock %}
+
+{% block content %}
+{{ faculty }}
+<form method="POST" action="{% url 'specialization' %}">
+ {% csrf_token %}
+<select>
+	{% for i in faculty %}
+	<option value="{{ i }}">{{ i }}</option>
+	{% endfor %}
+</select>
+<input type="submit" name="submit" value="Choose">
+</form>
+{% endblock content %}

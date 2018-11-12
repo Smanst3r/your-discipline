@@ -1,0 +1,20 @@
+{% extends 'service/base.html' %}
+
+{% block content %}
+<div class="row personal-cabinet">
+<h1 style="font-family: Helvetica;">Особистий кабінет: {{ user }}</h1>
+<p><b>Username: </b>{{ user.username }}</p>
+<p><b>Ім'я:</b> {{ user.first_name }}</p>
+<p><b>Прізвище: </b>{{ user.last_name }}</p>
+<p><b>Email:</b> {{ user.email }}</p>
+<p><b>Факультет:</b> {{ user.profile.faculty }}</p>
+<p><b>Спеціальність:</b> {{ user.profile.specialization.name }}</p>
+<p><b>Вибрані дисципліни:</b>
+{{ request.user.id }}
+{% for discipline in choosen_disciplines %}
+	<br>{{ discipline }}
+{% endfor %}
+</p>
+<a href="{% url 'logout' %}">Вийти</a>
+</div>
+{% endblock content %}

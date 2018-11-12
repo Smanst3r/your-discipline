@@ -1,0 +1,25 @@
+{% extends 'service/base.html' %}
+
+{% block title %}Disciplines{% endblock title %}
+
+{% block content %}		
+<table style="width: 100%" class="table">
+<tr>
+	<th>Дисципліна</th>
+	<th>Спеціальність</th>
+	<th>Факультет</th>
+	<th>Викладач</th>
+	<th>Вибір</th>
+</tr>
+{% for d in discipline %}
+	<tr>
+		<td>{{d.name}}</td>
+		<td>{{d.specialization}}</td>
+		<td>{{d.faculty}}</td>
+		<td>{{d.teacher}}</td>
+		<td><a href="{% url 'vote' pk=d.pk specialization=d.specialization.id faculty=d.faculty.id teacher=d.teacher.id student=user.profile.id %}">Вибрати {{ d.pk }}</a></td>
+	</tr>
+{% endfor %}
+{{ form }}
+</table>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "service/base.html" %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group">    
+        {{ form.as_p }}
+    </div>
+    <div class="form-group">  
+        <input type="radio" name="role" id="teacher" value="1">
+        <label for="teacher">Teacher</label>
+    </div>
+    <div class="form-group">  
+        <input type="radio" name="role" id="student" value="1">
+        <label for="student">Student</label>
+    </div>
+    <div class="form-group">  
+        <input type="submit" value="login" />
+    </div>
+    </form>
+{% endblock %}
