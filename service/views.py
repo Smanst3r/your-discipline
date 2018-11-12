@@ -67,3 +67,8 @@ def cabinet(request):
 	user_id = int(request.user.id)-1
 	choosen_disciplines = Result.objects.filter(student=user_id)
 	return render(request, 'service/cabinet.html', {'choosen_disciplines': choosen_disciplines})
+
+def remove(request, pk):
+	obj = Result.objects.get(pk=pk)
+	obj.delete()
+	return redirect('cabinet')

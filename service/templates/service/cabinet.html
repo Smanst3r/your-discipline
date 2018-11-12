@@ -11,7 +11,9 @@
 <p><b>Спеціальність:</b> {{ user.profile.specialization.name }}</p>
 <p><b>Вибрані дисципліни:</b>
 {% for discipline in choosen_disciplines %}
-	<br>{{ discipline }}
+	<div class="row" style="border-bottom: 1px solid #333">
+	<br><span>{{ discipline }}<br><a href="{% url 'remove' pk=discipline.pk %}" style="color: lightblue; float: right;">Видалити</a></span>
+	</div>
 {% endfor %}
 </p>
 <a href="{% url 'logout' %}">Вийти</a>
