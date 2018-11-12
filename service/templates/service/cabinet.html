@@ -10,7 +10,6 @@
 <p><b>Факультет:</b> {{ user.profile.faculty }}</p>
 <p><b>Спеціальність:</b> {{ user.profile.specialization.name }}</p>
 <p><b>Вибрані дисципліни:</b>
-{{ request.user.id }}
 {% for discipline in choosen_disciplines %}
 	<br>{{ discipline }}
 {% endfor %}

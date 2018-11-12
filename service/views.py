@@ -64,5 +64,6 @@ def vote(request, pk, specialization, faculty, teacher, student):
 
 @login_required
 def cabinet(request):
-	choosen_disciplines = Result.objects.filter(student=request.user.id)
+	user_id = int(request.user.id)-1
+	choosen_disciplines = Result.objects.filter(student=user_id)
 	return render(request, 'service/cabinet.html', {'choosen_disciplines': choosen_disciplines})

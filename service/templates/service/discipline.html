@@ -17,7 +17,7 @@
 		<td>{{d.specialization}}</td>
 		<td>{{d.faculty}}</td>
 		<td>{{d.teacher}}</td>
-		<td><a href="{% url 'vote' pk=d.pk specialization=d.specialization.id faculty=d.faculty.id teacher=d.teacher.id student=user.profile.id %}">Вибрати {{ d.pk }}</a></td>
+		<td><a href="{% url 'vote' pk=d.pk specialization=d.specialization.id faculty=d.faculty.id teacher=d.teacher.id student=user.profile.id %}">Вибрати</a></td>
 	</tr>
 {% endfor %}
 {{ form }}
