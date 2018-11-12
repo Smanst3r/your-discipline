@@ -11,7 +11,7 @@
 {% for f in faculty %}
 	<li>
 	{% if not f == user.profile.faculty %}
-		<a href="{% url 'specialization' pk=f.pk %}" class="list-group-item d-flex justify-content-between align-items-center disabled" style="color: #146047;" >{{ f }}
+		<a href="{% url 'specialization' pk=f.pk %}" class="list-group-item d-flex justify-content-between align-items-center disabled" style="color: #146047; pointer-events: none;" >{{ f }}
 	{% else %}
 		<a href="{% url 'specialization' pk=f.pk %}" class="list-group-item d-flex justify-content-between align-items-center active" style="color: #146047;" >{{ f }}
 	{% endif %}

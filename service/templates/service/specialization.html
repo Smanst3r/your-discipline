@@ -8,7 +8,7 @@
 {% for s in specialization %}
 	<li>
 	{% if not s.name == user.profile.specialization.name %}
-		<a href="{% url 'discipline' pk=s.pk %}" class="list-group-item d-flex justify-content-between align-items-center disabled">{{ s.name }}
+		<a href="{% url 'discipline' pk=s.pk %}" class="list-group-item d-flex justify-content-between align-items-center disabled" style="pointer-events: none;">{{ s.name }}
 		<span class="badge badge-primary badge-pill">{{ s.disciplines.count }}</span>
 		</a>
 	{% else %}
