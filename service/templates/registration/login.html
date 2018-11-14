@@ -5,21 +5,21 @@
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}" class="login-form form-horizontal col-md-6 col-md-offset-7 col-sm-8">
     {% csrf_token %}
     <div class="form-group">    
         {{ form.as_p }}
     </div>
     <div class="form-group">  
         <input type="radio" name="role" id="teacher" value="1" required>
-        <label for="teacher">Teacher</label>
+        <label for="teacher">Вчитель</label>
     </div>
     <div class="form-group">  
         <input type="radio" name="role" id="student" value="1" required>
-        <label for="student">Student</label>
+        <label for="student">Студент</label>
     </div>
     <div class="form-group">  
-        <input type="submit" value="login" />
+        <input type="submit" class="btn btn-primary" value="login" />
     </div>
     </form>
 
