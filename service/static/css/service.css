@@ -68,13 +68,14 @@ ul {
 
 .discipline_detail .container .row h3 {
     font-size: 32px;
-    color: #333;
+    color: #000;
 }
 
 .discipline_detail .container .row p {
     text-align: left;
     font-size: 22px;
     font-weight: bold;
+    color: #000;
 }
 
 .discipline_detail .container .row p span {
