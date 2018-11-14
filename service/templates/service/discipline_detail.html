@@ -1,0 +1,19 @@
+{% extends 'service/base.html' %}
+
+{% block title%} {{ discipline.name }} - Детальніше {% endblock title %}
+
+{% block content %}
+
+<div class="discipline_detail">
+<div class="container">
+	<div class="row">
+		<h3>{{ discipline }}</h3>
+		<p>Назва дисципліни: <span>{{ discipline.name }}</span></p>
+		<p>Викладає: <span>{{ discipline.teacher }}</span></p>
+		<p>Опис: <span>{{ discipline.about }}</span></p>
+		<p>{{ discipline.name }} вибирали: <span>{{ vote_counts.count }}</span></p>
+	</div>
+</div>
+</div>
+
+{% endblock content %}

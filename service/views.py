@@ -33,8 +33,16 @@ def specialization(request, pk):
 	return render(request, 'service/specialization.html', {'specialization': specialization, 'disciplines': disciplines,  'spec_id': pk})
 
 def discipline(request, pk):
-	result = Discipline.objects.filter(specialization=pk)
-	context = {'discipline': result}
+	disciplines = Discipline.objects.filter(specialization=pk)
+	result_by_student = Result.objects.filter(student=request.user.id-1)
+	result = Result.objects.filter(spec=pk)
+
+	disciplines_count_for_logged = result_by_student
+
+	context = { 
+			'disciplines': disciplines, 
+			'disciplines_count': disciplines_count_for_logged, 
+			'result': result }
 
 	if request.method == "POST":
 		form = ChooseDisciplineForm(request.POST)
@@ -44,12 +52,18 @@ def discipline(request, pk):
 
 	return render(request, 'service/discipline.html', context)
 
+def discipline_detail(request, pk):
+	discipline = Discipline.objects.get(id=pk)
+	vote_counts = Result.objects.filter(discipline=discipline)
+	return render(request, 'service/discipline_detail.html', {'discipline': discipline, 'vote_counts': vote_counts})
+
 def vote(request, pk, specialization, faculty, teacher, student):
 	discipline = Discipline.objects.get(id=pk)
 	spec = Specialization.objects.get(id=specialization)
 	faculty = Faculty.objects.get(id=faculty)
 	_teacher = Profile.objects.get(id=teacher)
 	_student = Profile.objects.get(id=student)
+
 
 	result = Result.objects.create(
 			discipline=discipline, 

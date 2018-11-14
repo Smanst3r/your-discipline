@@ -30,6 +30,7 @@ class Discipline(models.Model):
 	specialization = models.ForeignKey('service.Specialization', related_name="disciplines")
 	name = models.CharField(max_length=200)
 	teacher = models.ForeignKey('service.Profile', on_delete=models.CASCADE)
+	about = models.TextField(max_length=500, default="Опис дисципліни. Наприклад Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ")
 
 	def __str__(self):
 		return "{}, ({})".format(self.name, self.faculty)

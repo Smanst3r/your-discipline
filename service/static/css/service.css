@@ -56,5 +56,29 @@ h1, h2, h3, h4 {
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
+}
+
+.discipline_detail .container {
+    padding: 100px;
+    text-align: center;
+    background-color: #abc;
+    border-radius: 10px;
+}
+
+.discipline_detail .container .row h3 {
+    font-size: 32px;
+    color: #333;
+}
+
+.discipline_detail .container .row p {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.discipline_detail .container .row p span {
+    font-style: italic;
+    font-weight: 100;
+    font-size: 18px;
 }
