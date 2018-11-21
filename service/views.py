@@ -10,10 +10,6 @@ from .forms import FacultyForm, SpecializationForm, ChooseDisciplineForm
 def home(request):
 	faculty = Faculty.objects.all()
 	specs = Specialization.objects.all()
-	
-	# loggedUser = authenticate(username=request.user.username, password=request.user.password)
-	# if not loggedUser:
-	# 	return redirect('login')
 
 	return render(request, 'service/home.html', {'faculty': faculty, 'specs': specs})
 			
