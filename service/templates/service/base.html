@@ -11,22 +11,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/service.css' %}">
-
+    <!-- Jquery -->
+    <script
+              src="https://code.jquery.com/jquery-2.2.4.min.js"
+              integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+              crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="page-header">
     {% if user.is_authenticated %}
-        <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+        <p class="top-menu" style="font-size: 20px;"> {{ user.username }} <small>(<a href="{% url 'logout' %}">Вийти</a>)</small></p>
     {% else %}
         <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
     {% endif %}
-    <h1><a href="/">Сервіс для вибору студентами навчальних дисциплін</a></h1>
+    <h1><a href="/" style="font-size: 1em;">Сервіс для вибору студентами навчальних дисциплін</a></h1>
     </div>
     <div class="content container">
     {% if user.is_authenticated %}
-    <a href="{% url 'cabinet' %}" class="cabinet btn btn-primary" style="color: white;">Мій кабінет</a>
+    <div class="cabinet pull-right">
+    <a href="{% url 'cabinet' %}" class="btn btn-primary" style="color: white;">Мій кабінет</a>
+    </div>
     {% endif %}
         <div class="row">
             <div class="col-md-8">

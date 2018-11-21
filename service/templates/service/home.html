@@ -3,9 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-  Hi, {{ user }}!
-  {% endif %}
 
 <ul class="list-group-flush">
 {% for f in faculty %}
